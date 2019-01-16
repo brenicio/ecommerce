@@ -1,4 +1,6 @@
 import * as React from 'react';
+import Cart from './components/cart/Cart';
+
 import './App.css';
 
 import logo from './logo.svg';
@@ -21,7 +23,7 @@ class App extends React.Component {
         </header>
         <main id="main">
           <div className="container">
-            Main content
+            <Cart />
           </div>
         </main>
       </div>
