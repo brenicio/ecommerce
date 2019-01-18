@@ -1,7 +1,27 @@
+
+* {
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+}
+
 #header {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 8px rgba(77, 83, 69, 1);   
   margin: 0 0 15px;
-  background-color: #ccc;
+  background-color: #9fac8c;
+}
+
+body {
+  margin: 1px 0px 0 0 !important;
+  background: #f8f8f8 !important;
+  width: auto !important;
+  min-width: 970px !important;
+}
+
+p {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  color: #222;
 }
 
 .container {
@@ -16,13 +36,34 @@
 
 .logo .logo-img {
   float: left;
-  width: 52px;
+  width: 74px;
+  position: relative;
+  top: -14px;
 }
 
 .logo .logo-title {
-  font-size: 16px;
   float: left;
-  margin: 15px 0 0 0;
+  color: #454c3b;
+  display: block;
+  font: small-caps bold 30px/40px "Trebuchet MS",Times,sans-serif;
+  margin: 13px 0 2px;
+  padding: 3px 0 0;
+  }
+
+.main-work {
+  min-height: 450px;
+  width: auto;
+  padding-top: 11px;
+  padding-left: 31px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  font-size: 12px;
+  border: solid 1px #454c3b;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #e4e9e6;
+  font-family: Tahoma, Arial, Helvetica, sans-serif;
 }
 
 /* header-toolbar */
