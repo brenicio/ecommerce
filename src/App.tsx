@@ -1,9 +1,11 @@
 import * as React from 'react';
+
+import { faShoppingCart } from 'node_modules/@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from 'node_modules/@fortawesome/react-fontawesome';
 import Cart from './components/cart/Cart';
+import logo from './logo.svg';
 
 import './App.css';
-
-import logo from './logo.svg';
 
 class App extends React.Component {
   public render() {
@@ -13,11 +15,13 @@ class App extends React.Component {
           <div className="container clearfix">
             <div className="logo clearfix">
               <img src={logo} className="logo-img" alt="logo" />
-              <h1 className="logo-title">e-commerce</h1>
+              <h1 className="logo-title">CHOPPingue</h1>
             </div>
-
             <div className="header-toolbar">
-              Toolbar
+              <a className="toolbar-frame">
+                <span className="toolbar-helper">5</span>
+                <FontAwesomeIcon className ='toolbar-img' icon={faShoppingCart} />
+              </a>
             </div>
           </div>
         </header>
