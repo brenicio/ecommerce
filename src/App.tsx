@@ -27,7 +27,7 @@ class App extends React.Component {
           </div>
         </header>
         <main id="main">
-          <div className="container main-work">
+          <div className="container">
             <Cart />
             
             <Product /> 

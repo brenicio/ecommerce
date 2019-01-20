@@ -51,19 +51,16 @@ p {
   }
 
 .main-work {
-  min-height: 450px;
-  width: auto;
-  padding-top: 11px;
-  padding-left: 31px;
-  padding-right: 10px;
-  padding-bottom: 15px;
-  font-size: 12px;
-  border: solid 1px #454c3b;
+  background-color: #e4e9e6;
+  border: 1px solid #454c3b;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background-color: #e4e9e6;
-  font-family: Tahoma, Arial, Helvetica, sans-serif;
+  font-family: Tahoma,Arial,Helvetica,sans-serif;
+  font-size: 12px;
+  margin: 0 0 12px;
+  padding: 11px 10px 15px 31px;
+  width: auto;
 }
 
 /* header-toolbar */
