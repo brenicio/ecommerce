@@ -7,7 +7,7 @@ class Cart extends React.Component {
 
     return (
       <div className="row">
-            {product.name}
+            {product.nome}
       </div>
     );
   }

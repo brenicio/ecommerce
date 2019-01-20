@@ -92,3 +92,25 @@ p {
   max-height: 25px;
   max-width: 160px;
 }
+
+.lbl {
+  text-align: right;
+  padding-left: 0px;
+  padding-right: 10px;
+  font-family: Tahoma, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #444;
+  text-shadow: 1px 1px #fff;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.vlr {
+  padding-left: 0px;
+  font-family: Arial, helvetica, sans-serif;
+  font-size: 12px;
+  color: #222;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  word-wrap: break-word;
+}
