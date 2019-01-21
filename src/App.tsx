@@ -3,7 +3,7 @@ import * as React from 'react';
 import { faShoppingCart } from 'node_modules/@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from 'node_modules/@fortawesome/react-fontawesome';
 import Cart from './components/cart/Cart';
-import Product from './components/product/Product';
+// import Product from './components/product/Product';
 import logo from './logo.svg';
 
 import './App.css';
@@ -30,7 +30,7 @@ class App extends React.Component {
           <div className="container">
             <Cart />
             
-            <Product /> 
+            {/* <Product />  */}
           </div>
         </main>
       </div>
