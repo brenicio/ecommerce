@@ -3,6 +3,11 @@ import * as React from 'react';
 import { faShoppingCart } from 'node_modules/@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from 'node_modules/@fortawesome/react-fontawesome';
 import Cart from './components/cart/Cart';
+import ProductCarrousel from './components/product/ProductCarrousel';
+import ProductList from './components/product/ProductList';
+
+
+
 // import Product from './components/product/Product';
 import logo from './logo.svg';
 
@@ -21,7 +26,7 @@ class App extends React.Component {
             <div className="header-toolbar">
               <a className="toolbar-frame">
                 <span className="toolbar-helper">5</span>
-                <FontAwesomeIcon className ='toolbar-img' icon={faShoppingCart} />
+                <FontAwesomeIcon className='toolbar-img' icon={faShoppingCart} />
               </a>
             </div>
           </div>
@@ -29,7 +34,12 @@ class App extends React.Component {
         <main id="main">
           <div className="container">
             <Cart />
-            
+            <br/>
+            <ProductCarrousel/>
+            <br/>
+            <br/>
+            <ProductList />
+
             {/* <Product />  */}
           </div>
         </main>
