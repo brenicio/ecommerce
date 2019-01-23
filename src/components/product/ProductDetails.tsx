@@ -1,6 +1,5 @@
 import * as React from 'react';
 import ProductService from '../../services/ProductService';
-// import Details from './Details';
 
 import './Product.css';
 
