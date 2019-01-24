@@ -5,7 +5,7 @@ class ProductService {
           descricao: 'Bebida que o danilo toma de vez em quando',
           embalagem:'Garrafa',
           foto:'https://static.carrefour.com.br/medias/sys_master/images/images/h7f/hc3/h00/h00/9264053190686.jpg',
-          id: 1,
+          id: '1',
           ingredientes:'Cevada, Malte, Grãos e Água.',
           nome:'Whisky Johnnie Walker Blue Label',
           origem:'Escócia',

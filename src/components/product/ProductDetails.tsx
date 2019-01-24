@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ProductService from '../../services/ProductService';
-
 import './Product.css';
+
 
 class Product extends React.Component {
     public render() {

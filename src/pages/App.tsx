@@ -3,9 +3,6 @@ import * as React from 'react';
 import ProductCarrousel from '../components/product/ProductCarrousel';
 import ProductList from '../components/product/ProductList';
 
-
-
-
 class App extends React.Component {
 
   constructor(props: any){
