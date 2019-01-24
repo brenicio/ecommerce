@@ -15,7 +15,7 @@ class ProdutList extends React.Component {
                         <div className="img-wrap">
                             <img src={product.foto} />
                             <a className="btn-overlay" href="#">
-                                <NavLink to={"/productdetails/"+product.id} className="fa fa-search-plus text-light">Detalhes</NavLink>
+                                <NavLink to={`/productdetails/${product.id}`} className="fa fa-search-plus text-light">Detalhes</NavLink>
                             </a>
                         </div>
                         <figcaption className="info-wrap">

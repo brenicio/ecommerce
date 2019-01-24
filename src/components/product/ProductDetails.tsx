@@ -1,13 +1,28 @@
 import * as React from 'react';
+import productService from '../../services/ProductService';
+import {RouteComponentProps} from 'react-router-dom'
 import ProductService from '../../services/ProductService';
-import './Product.css';
 
+const product = new productService().findProducts()[0];
 
-class Product extends React.Component {
+class ProductDetails extends React.Component<RouteComponentProps> {   
+    
+    constructor(props: any){        
+        super(props);
+        
+        
+
+    };
+   public FindProduct(idx: any){ 
+       const idProd = idx.id;            
+       const produto = new ProductService().findProductsById(idProd);
+       return produto
+   }
+    
     public render() {
-        const product = new ProductService().findProducts()[0];
-
-        return (
+        console.log(this.FindProduct(this.props.match.params));
+        
+        return (            
             <div className="card">
                 <div className="row no-gutters">
                     <aside className="col-sm-5 border-right">
@@ -113,9 +128,10 @@ class Product extends React.Component {
                     </aside>
                 </div>
             </div>
+            
                
                 );
             }
         }
         
-export default Product;
+export default ProductDetails;
