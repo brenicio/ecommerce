@@ -25,15 +25,15 @@ class Toolbar extends React.Component {
 
                             <div className="col-md-4">
                                 <nav className="nav nav-pills justify-content-center">
-                                    <li className="nav-item">
-                                        <NavLink to="/" className="nav-link" activeClassName="active">Loja</NavLink>
-                                    </li>
-                                    <li className="nav-item">
-                                        <NavLink to="/products" className="nav-link" activeClassName="active">Produtos</NavLink>
-                                    </li>
-                                    <li className="nav-item">
-                                        <NavLink to="/cart" className="nav-link" activeClassName="active">Carrinho</NavLink>
-                                    </li>
+
+                                    <NavLink to="/" className="nav-link" activeClassName="active">Loja</NavLink>
+
+
+                                    <NavLink to="/products" className="nav-link" activeClassName="active">Produtos</NavLink>
+
+
+                                    <NavLink to="/cart" className="nav-link" activeClassName="active">Carrinho</NavLink>
+
                                 </nav>
                             </div>
 

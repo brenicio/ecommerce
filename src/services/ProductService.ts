@@ -30,14 +30,14 @@ class ProductService {
 
     public findProductsById(ID: string) {
         const arr = this.findProducts();
-        let produto: object;
-        produto = {};
+        let produto = arr[0];
         for (const i in arr) {
             if (arr[i].id === ID) {
-                produto = arr[i];
+               produto = arr[i];
                 break;
             }
         }
+    
         return produto;
 
     }
