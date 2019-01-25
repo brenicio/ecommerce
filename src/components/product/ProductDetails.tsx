@@ -40,8 +40,6 @@ class ProductDetails extends React.Component<IProps, IState> {
         return produto
     }
 
-
-
     public render() {
         return (
             <div className="card">
@@ -64,7 +62,7 @@ class ProductDetails extends React.Component<IProps, IState> {
                             <h3 className="title mb-3">{this.state.produto.nome}</h3>
                             <div className="mb-3">
                                 <var className="price h3 text-warning">
-                                    <span className="currency">BRL $</span><span className="num">{this.state.produto.valor}</span>
+                                    <span className="currency">R$ </span><span className="num">{this.state.produto.valor}</span>
                                 </var>
                             </div>
                             <dl>
@@ -104,8 +102,6 @@ class ProductDetails extends React.Component<IProps, IState> {
                                         <i className="fa fa-star" />
                                     </li>
                                 </ul>
-                                <div className="label-rating">20 reviews</div>
-                                <div className="label-rating">3 orders </div>
                             </div>
                             <hr />
                             <div className="row">
@@ -124,23 +120,7 @@ class ProductDetails extends React.Component<IProps, IState> {
                                     </dl>
                                 </div>
                                 <div className="col-sm-7">
-                                    <dl className="dlist-inline">
-                                        <dt>Size: </dt>
-                                        <dd>
-                                            <label className="form-check form-check-inline">
-                                                <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                                                <span className="form-check-label">SM</span>
-                                            </label>
-                                            <label className="form-check form-check-inline">
-                                                <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                                                <span className="form-check-label">MD</span>
-                                            </label>
-                                            <label className="form-check form-check-inline">
-                                                <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                                                <span className="form-check-label">XXL</span>
-                                            </label>
-                                        </dd>
-                                    </dl>
+                                    <div />
                                 </div>
                             </div>
                             <hr />

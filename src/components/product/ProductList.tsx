@@ -20,7 +20,7 @@ class ProdutList extends React.Component {
                         <div className="action-wrap">
                             <a href="#" className="btn btn-primary btn-sm float-right"> Comprar </a>
                             <div className="price-wrap h5">
-                                <span className="price-new">${p.valor}</span>
+                                <span className="price-new">R$ {p.valor}</span>
                             </div>
                         </div>
                     </figcaption>
