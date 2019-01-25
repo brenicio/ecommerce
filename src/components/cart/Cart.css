@@ -1,0 +1,27 @@
+.cart { }
+
+.cart-link {
+    display: inline-block;
+    cursor: pointer;
+    width: 28px;
+}
+
+.cart-count {
+    background: #fff;
+    border-radius: 12px;
+    display: block;
+    line-height: 16px;
+    font-size: 12px;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    transform: translate(12px, 6px);
+}
+
+.cart-icon {
+    display: block;
+}
+
+.cart-items-container {
+    width: 300px;
+}

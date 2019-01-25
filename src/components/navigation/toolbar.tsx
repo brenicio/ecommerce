@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { faShoppingCart } from 'node_modules/@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from 'node_modules/@fortawesome/react-fontawesome';
 import logo from '../../logo.svg';
 import { NavLink } from 'react-router-dom';
+import Cart from '../cart/Cart';
 
 class Toolbar extends React.Component {
 
@@ -39,10 +38,7 @@ class Toolbar extends React.Component {
 
                             <div className="col-md-4">
                                 <div className="header-toolbar">
-                                    <a className="toolbar-frame">
-                                        <span className="toolbar-helper">5</span>
-                                        <FontAwesomeIcon className='toolbar-img' icon={faShoppingCart} />
-                                    </a>
+                                    <Cart />
                                 </div>
                             </div>
 
