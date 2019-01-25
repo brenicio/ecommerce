@@ -52,10 +52,10 @@ class ProductDetails extends React.Component<IProps, IState> {
                                 <div> <a href={this.state.produto.foto} data-fancybox=""><img src={this.state.produto.foto} /></a></div>
                             </div>
                             <div className="img-small-wrap">
-                                <div className="item-gallery"> <img src="images/items/1.jpg" /></div>
-                                <div className="item-gallery"> <img src="images/items/2.jpg" /></div>
-                                <div className="item-gallery"> <img src="images/items/3.jpg" /></div>
-                                <div className="item-gallery"> <img src="images/items/4.jpg" /></div>
+                                <div className="item-gallery"> <img src={this.state.produto.foto} /></div>
+                                <div className="item-gallery"> <img src={this.state.produto.foto} /></div>
+                                <div className="item-gallery"> <img src={this.state.produto.foto} /></div>
+                                <div className="item-gallery"> <img src={this.state.produto.foto} /></div>
                             </div>
                         </article>
                     </aside>
@@ -114,9 +114,11 @@ class ProductDetails extends React.Component<IProps, IState> {
                                         <dt>Quantidade: </dt>
                                         <dd>
                                             <select className="form-control form-control-sm" style={{ width: '70px' }}>
-                                                <option> 1 </option>
-                                                <option> 2 </option>
-                                                <option> 3 </option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>4</option>
+                                                <option>8</option>
+                                                <option>10</option>
                                             </select>
                                         </dd>
                                     </dl>
@@ -148,8 +150,6 @@ class ProductDetails extends React.Component<IProps, IState> {
                     </aside>
                 </div>
             </div>
-
-
         );
     }
 }
