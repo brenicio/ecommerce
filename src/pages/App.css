@@ -144,3 +144,11 @@ p {
 #main > div > div.carousel.slide > div > div > div > h3{
   font-weight: bold;
 }
+
+#main > div > div.carousel.slide > ol{
+  bottom: -27px;  
+}
+
+#main > div > div.carousel.slide > ol > li{
+  background-color: #6c757d;
+}
