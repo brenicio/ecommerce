@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
+import 'roboto-fontface/css/roboto/roboto-fontface.css';
 import './css/ui.css';
 import './index.css';
 
@@ -21,7 +22,6 @@ ReactDOM.render((
         <Route path="/productdetails/:id" component={Product} />
       </Switch>
     </div>
-
   </Router>
 ),
   document.getElementById('root') as HTMLElement
