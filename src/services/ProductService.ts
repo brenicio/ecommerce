@@ -1,5 +1,5 @@
 class ProductService {
-    public findProducts() {
+    public findProducts():any[] {
         return [
             {
                 conteudo: '750 ML',

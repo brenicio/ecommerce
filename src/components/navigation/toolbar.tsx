@@ -16,8 +16,10 @@ class Toolbar extends React.Component {
                         <div className="row">
                             <div className="col-md-8">
                                 <div className="logo clearfix">
-                                    <img src={logo} className="logo-img" alt="logo" />
-                                    <h1 className="logo-title">CHOPPingue</h1>
+                                    <a href="/">
+                                        <img src={logo} className="logo-img" alt="logo" />
+                                        <h1 className="logo-title">CHOPPingue</h1>
+                                    </a>
                                 </div>
                             </div>
 

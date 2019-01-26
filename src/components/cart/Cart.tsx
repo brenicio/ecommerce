@@ -6,6 +6,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Popover, PopoverHeader, PopoverBody, Row, Col } from 'reactstrap';
+import CartStore from 'src/stores/CartStore';
 
 class Cart extends React.Component<any, any> {
   constructor(props: any){
@@ -15,6 +16,20 @@ class Cart extends React.Component<any, any> {
     this.state = {
       popoverOpen: false
     };
+
+    this._onChange = this._onChange.bind(this);
+  }
+
+  componentDidMount() {
+    CartStore.addChangeListener(this._onChange)
+  }
+
+  componentWillUnmount() {
+    CartStore.removeChangeListener(this._onChange);
+  }
+
+  _onChange() {
+    console.log(CartStore.getProducts())
   }
 
   public toggle() {
@@ -43,6 +58,9 @@ class Cart extends React.Component<any, any> {
                   <li>Produto 3</li>
                 </ul>
               </Col>
+            </Row>
+            <hr/>
+            <Row>
               <Col sm="4">
                 <strong>Total: </strong>
               </Col>

@@ -112,6 +112,59 @@ p {
   word-wrap: break-word;
 }
 
+.btn {
+  -moz-user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  line-height: 1.42857;
+  margin-bottom: 0;
+  padding: 6px 12px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+  outline: thin dotted;
+  outline-offset: -2px;
+}
+.btn:hover, .btn:focus {
+  color: #fff;
+  text-decoration: none;
+}
+.btn:active, .btn.active {
+  background-image: none;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125) inset;
+  outline: 0 none;
+}
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.btn-grey {
+  background-color: #f3f3f3;
+  border: 1px solid #e5e5e5;
+  color: #818080;
+  font-weight: normal;
+  height: 40px;
+}
+.btn-grey:hover, .btn-grey:focus {
+  color: #818080;
+}
+
+.btn-load-page {
+  display: block;
+  margin: 20px 0 29px;
+}
+
 #main > div > div.carousel.slide > div > div.carousel-item > img {
   height: 250px !important;
     width: auto !important;
