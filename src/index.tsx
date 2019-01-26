@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import App from './pages/App';
 import ProductList from './components/product/ProductList';
 import Product from './components/product/ProductDetails';
-import Toolbar from './components/navigation/toolbar';
+import Toolbar from './components/navigation/Toolbar';
 
 const exact: boolean = true
 ReactDOM.render((

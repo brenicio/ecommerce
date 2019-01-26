@@ -23,7 +23,7 @@
 }
 
 .cart-items-container {
-  width: 300px;
+  width: 340px;
 }
 
 .cart-product-list {
@@ -37,6 +37,18 @@
   padding-top: 9px;
 }
 
+.cart-product-item {
+  margin: 9px 0;
+  padding-right: 18px;
+  position: relative;
+}
+
+.cart-product-item .close {
+  position: absolute;
+  top: -2px;
+  right: 0;
+}
+
 .cart-product-label {
   display: inline-block;
   vertical-align: top;
@@ -45,4 +57,8 @@
 
 .cart-product-label:last-child {
   margin-left: 6px;
+}
+
+.cart-product-list-buttons {
+  margin-top: 15px;
 }

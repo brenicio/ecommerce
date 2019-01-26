@@ -6,8 +6,8 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Popover, PopoverHeader, PopoverBody } from 'reactstrap';
-import CartStore from 'src/stores/CartStore';
-import CartActions from 'src/actions/CartActions';
+import CartStore from '../../stores/CartStore';
+import CartActions from '../../actions/CartActions';
 
 class Cart extends React.Component<any, any> {
   constructor(props: any){
@@ -16,7 +16,7 @@ class Cart extends React.Component<any, any> {
     this.toggle = this.toggle.bind(this);
     this.state = {
       popoverOpen: false,
-      products: []
+      products: CartStore.getProducts()
     };
 
     this._onChange = this._onChange.bind(this);
@@ -73,15 +73,19 @@ class Cart extends React.Component<any, any> {
                 <ul className="cart-product-list">
                   {this.state.products.map((p:any) =>
                   <li className="cart-product-item" key={p.id.toString()}>
+                    <a className="close" onClick={this.removeProduct.bind(this, p)}>&times;</a>
                     <span className="cart-product-label">{p.nome}</span>
                     <span className="cart-product-label text-right">1 x {p.valor}</span>
-                    <a className="close" onClick={this.removeProduct.bind(this, p)}>&times;</a>
                   </li>
                   )}
                 </ul>
                 <div className="cart-product-list-footer">
                   <strong className="cart-product-label">Total: </strong>
                   <span className="cart-product-label text-right">{total(this.state.products)}</span>
+                </div>
+
+                <div className="cart-product-list-buttons clearfix">
+                  <button type="button" className="btn btn-primary float-right">Finalizar Compra</button>
                 </div>
               </div>
             ) : (

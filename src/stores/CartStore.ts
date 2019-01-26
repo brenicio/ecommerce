@@ -10,6 +10,8 @@ class CartStore extends EventEmitter {
   constructor() {
     super();
     CartDispatcher.register(this.registerActions.bind(this));
+
+    this.findProductsInLocalStorage();
   }
 
   registerActions(action:any) {
@@ -30,12 +32,15 @@ class CartStore extends EventEmitter {
   addProduct(product:any) {
     if(!_products.find((p) => p.id === product.id)) {
       _products.push(product);
+      this.updateProductsInLocalStorage(_products);
     }
   }
 
   removeProduct(product:any) {
     const index = _products.findIndex((p) => p.id === product.id);
     _products.splice(index, index + 1);
+
+    this.updateProductsInLocalStorage(_products);
   }
 
   addChangeListener(callback:any) {
@@ -48,6 +53,17 @@ class CartStore extends EventEmitter {
 
   getProducts() {
     return _products;
+  }
+
+  private findProductsInLocalStorage() {
+    const cartProducts = JSON.parse(localStorage.getItem('cartProducts') || "[]");
+    cartProducts.forEach((p:any) => {
+      _products.push(p);
+    })
+  }
+
+  private updateProductsInLocalStorage(products:any[]) {
+    localStorage.setItem('cartProducts', JSON.stringify(products));
   }
 }
 
