@@ -5,8 +5,9 @@ import './Cart.css';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { Popover, PopoverHeader, PopoverBody, Row, Col } from 'reactstrap';
+import { Popover, PopoverHeader, PopoverBody } from 'reactstrap';
 import CartStore from 'src/stores/CartStore';
+import CartActions from 'src/actions/CartActions';
 
 class Cart extends React.Component<any, any> {
   constructor(props: any){
@@ -14,7 +15,8 @@ class Cart extends React.Component<any, any> {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      popoverOpen: false
+      popoverOpen: false,
+      products: []
     };
 
     this._onChange = this._onChange.bind(this);
@@ -29,45 +31,62 @@ class Cart extends React.Component<any, any> {
   }
 
   _onChange() {
-    console.log(CartStore.getProducts())
+    this.setState({
+      products: CartStore.getProducts()
+    })
   }
 
-  public toggle() {
+  toggle() {
     this.setState({
       popoverOpen: !this.state.popoverOpen
     });
   }
 
+  removeProduct(product:any) {
+    CartActions.removeProduct(product);
+  }
+
   public render() {
+    const total = ((products:any[]) => {
+      return products.reduce((result, p) => {
+        return result + p.valor;
+      }, 0);
+    }).bind(this);
+
     return (
       <div className="cart">
-        <a id="Popover1" className="cart-link">
-          <span className="cart-count">0</span>
+        <a id="CartPopover" className="cart-link">
+          <span className="cart-count">{this.state.products.length}</span>
           <FontAwesomeIcon icon={faShoppingCart} className="cart-icon" />
         </a>
 
         <Popover className="cart-items-container" placement="bottom-end" isOpen={this.state.popoverOpen} trigger="legacy"
-          target="Popover1" toggle={this.toggle}>
+          target="CartPopover" toggle={this.toggle}>
           <PopoverHeader className="text-center">Carrinho de Compras</PopoverHeader>
           <PopoverBody>
-            <Row>
-              <Col sm="12">
-                <ul>
-                  <li>Produto 1</li>
-                  <li>Produto 2</li>
-                  <li>Produto 3</li>
+            {this.state.products.length > 0 ? (
+              <div className="cart-product-list-container">
+                <div className="cart-product-list-header">
+                  <strong className="cart-product-label">Produto</strong>
+                  <strong className="cart-product-label text-right">Qtd x Preço</strong>
+                </div>
+                <ul className="cart-product-list">
+                  {this.state.products.map((p:any) =>
+                  <li className="cart-product-item" key={p.id.toString()}>
+                    <span className="cart-product-label">{p.nome}</span>
+                    <span className="cart-product-label text-right">1 x {p.valor}</span>
+                    <a className="close" onClick={this.removeProduct.bind(this, p)}>&times;</a>
+                  </li>
+                  )}
                 </ul>
-              </Col>
-            </Row>
-            <hr/>
-            <Row>
-              <Col sm="4">
-                <strong>Total: </strong>
-              </Col>
-              <Col sm="8" className="text-right">
-                R$ 20,00
-              </Col>
-            </Row>
+                <div className="cart-product-list-footer">
+                  <strong className="cart-product-label">Total: </strong>
+                  <span className="cart-product-label text-right">{total(this.state.products)}</span>
+                </div>
+              </div>
+            ) : (
+              <div className="text-center">Seu carrinho está vazio</div>
+            )}
           </PopoverBody>
         </Popover>
       </div>

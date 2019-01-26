@@ -1,5 +1,6 @@
 import * as React from 'react';
 import ProductService from '../../services/ProductService';
+import CartActions from '../../actions/CartActions';
 
 interface IState {
     produto: {
@@ -38,6 +39,10 @@ class ProductDetails extends React.Component<IProps, IState> {
     public FindProduct(idx: string) {
         const produto = new ProductService().findProductsById(idx);
         return produto
+    }
+
+    addProductToCart(product:any) {
+        CartActions.addProduct(product);
     }
 
     public render() {
@@ -125,7 +130,7 @@ class ProductDetails extends React.Component<IProps, IState> {
                             </div>
                             <hr />
                             <a href="#" className="btn  btn-primary"> Comprar agora </a>
-                            <a href="#" className="btn  btn-outline-primary"> <i className="fas fa-shopping-cart" /> Adicionar ao carrinho </a>
+                            <a href="#" className="btn  btn-outline-primary" onClick={this.addProductToCart.bind(this, this.state.produto)}> <i className="fas fa-shopping-cart" /> Adicionar ao carrinho </a>
                         </article>
                     </aside>
                 </div>
