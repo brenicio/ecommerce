@@ -1,6 +1,7 @@
 import * as React from 'react';
 import logo from '../../logo.svg';
 import Cart from '../cart/Cart';
+import { Link } from 'react-router-dom';
 
 class Toolbar extends React.Component {
 
@@ -16,10 +17,10 @@ class Toolbar extends React.Component {
                         <div className="row">
                             <div className="col-md-8">
                                 <div className="logo clearfix">
-                                    <a href="/">
+                                    <Link to="/">
                                         <img src={logo} className="logo-img" alt="logo" />
                                         <h1 className="logo-title">CHOPPingue</h1>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
 
