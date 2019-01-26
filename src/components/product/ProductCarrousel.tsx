@@ -7,8 +7,8 @@ const produtos = new ProductService().findProducts();
 const items = produtos.map((p)=>{
  return {
     src: `${p.foto}`,
-    altText: `${p.nome}`,
-    caption: `${p.valor}`,
+    altText: ``,
+    caption: `R$ ${p.valor}`,
     header: `${p.nome}`
     
   }
