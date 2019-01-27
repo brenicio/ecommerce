@@ -1,9 +1,9 @@
 import * as React from 'react';
 import logo from '../../logo.svg';
 import Cart from '../cart/Cart';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
-class Toolbar extends React.Component {
+class Toolbar extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
@@ -26,7 +26,10 @@ class Toolbar extends React.Component {
 
                             <div className="col-md-4">
                                 <div className="header-toolbar">
-                                    <Cart />
+                                  {this.props.location.pathname !== '/order' 
+                                    && this.props.location.pathname !== '/order-checkout' ?
+                                  <Cart />
+                                  : ''}
                                 </div>
                             </div>
                         </div>
@@ -38,4 +41,4 @@ class Toolbar extends React.Component {
 
 }
 
-export default Toolbar;
+export default withRouter(Toolbar);

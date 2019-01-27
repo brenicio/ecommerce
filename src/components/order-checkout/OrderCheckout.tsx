@@ -1,18 +1,33 @@
+import './OrderCheckout.css';
+
 import * as React from 'react';
 import CartStore from 'src/stores/CartStore';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import CartActions from 'src/actions/CartActions';
 
-class OrderCheckout extends React.Component {
+class OrderCheckout extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
+    this.state = {
+      products: CartStore.getProducts()
+    };
+  }
+
+  removeProduct(product:any) {
+    CartActions.removeProduct(product);
+    this.setState({
+      products: CartStore.getProducts()
+    });
   }
 
   render() {
-    const products = CartStore.getProducts();
-
+    if(this.state.products.length === 0) {
+      return <Redirect to="/" />;
+    }
+    
     return (
     <>
-    <h2>Finalizar Compra</h2>
+    <h2 className="page-title">Carrinho de Compra</h2>
     <div className="card">
       <table className="table table-hover shopping-cart-wrap">
         <thead className="text-muted">
@@ -24,7 +39,7 @@ class OrderCheckout extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {products.map((p:any) =>
+          {this.state.products.map((p:any) =>
           <tr key={p.id.toString()}>
             <td>
               <figure className="media">
@@ -32,16 +47,16 @@ class OrderCheckout extends React.Component {
                   <img src={p.foto} alt={p.nome} className="img-thumbnail img-sm" />
                 </div>
                 <figcaption className="media-body">
-                  <h6 className="title text-truncate">
+                  <h3 className="title text-truncate">
                     <Link to={`/productdetails/${p.id}`}>{p.nome}</Link>
-                  </h6>
+                  </h3>
                 </figcaption>
               </figure>
             </td>
             <td className="text-center">1</td>
             <td className="text-center">{p.valor}</td>
             <td className="text-center">
-              <button type="button" className="btn btn-sm btn-danger">Remover</button>
+              <button type="button" className="btn btn-sm btn-danger" onClick={this.removeProduct.bind(this, p)}>Remover</button>
             </td>
           </tr>
           )}
@@ -51,7 +66,7 @@ class OrderCheckout extends React.Component {
     <div className="clearfix mt-3">
       <div className="float-right">
         <Link to="/" className="btn btn-primary">Continuar comprando</Link>
-        <Link to="/" className="btn btn-primary ml-1">Finalizar</Link>
+        <Link to="/order" className="btn btn-primary ml-1">Finalizar</Link>
       </div>
     </div>
     </>

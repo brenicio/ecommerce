@@ -24,10 +24,6 @@ p {
   color: #222;
 }
 
-.container {
-  height: 56px !important;
-}
-
 /* logo */
 
 .logo {
@@ -38,7 +34,7 @@ p {
   float: left;
   width: 74px;
   position: relative;
-  top: -14px;
+  top: -16px;
 }
 
 .logo .logo-title {
@@ -46,8 +42,7 @@ p {
   color: #454c3b;
   display: block;
   font: small-caps bold 30px/40px "Trebuchet MS",Times,sans-serif;
-  margin: 13px 0 2px;
-  padding: 3px 0 0;
+  margin: 9px 0 9px 6px;
   }
 
 .main-work {
@@ -218,4 +213,8 @@ p {
 
 #main > div > div.carousel.slide > ol > li{
   background-color: #6c757d;
+}
+
+#main-content {
+  margin-bottom: 1rem;
 }

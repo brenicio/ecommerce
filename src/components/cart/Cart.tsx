@@ -90,7 +90,7 @@ class Cart extends React.Component<any, any> {
                 </div>
               </div>
             ) : (
-              <div className="text-center">Seu carrinho está vazio</div>
+              <div className="alert alert-info text-center text-center m-0">Seu carrinho está vazio</div>
             )}
           </PopoverBody>
         </Popover>

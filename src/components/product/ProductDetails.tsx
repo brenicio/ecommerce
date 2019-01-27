@@ -1,6 +1,7 @@
 import * as React from 'react';
 import ProductService from '../../services/ProductService';
 import CartActions from '../../actions/CartActions';
+import { Link } from 'react-router-dom';
 
 interface IState {
     produto: {
@@ -32,10 +33,9 @@ class ProductDetails extends React.Component<IProps, IState> {
         super(props);
         this.state = {
             produto: this.FindProduct(this.props.match.params.id)
-
         };
     };
-
+    
     public FindProduct(idx: string) {
         const produto = new ProductService().findProductsById(idx);
         return produto
@@ -113,28 +113,8 @@ class ProductDetails extends React.Component<IProps, IState> {
                                 </ul>
                             </div>
                             <hr />
-                            <div className="row">
-                                <div className="col-sm-5">
-                                    <dl className="dlist-inline">
-                                        <dt>Quantidade: </dt>
-                                        <dd>
-                                            <select className="form-control form-control-sm" style={{ width: '70px' }}>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>4</option>
-                                                <option>8</option>
-                                                <option>10</option>
-                                            </select>
-                                        </dd>
-                                    </dl>
-                                </div>
-                                <div className="col-sm-7">
-                                    <div />
-                                </div>
-                            </div>
-                            <hr />
-                            <button type="button" className="btn  btn-primary" onClick={this.buyProduct.bind(this, this.state.produto)}> Comprar agora </button>
-                            <button type="button" className="btn  btn-outline-primary" onClick={this.addProductToCart.bind(this, this.state.produto)}> <i className="fas fa-shopping-cart" /> Adicionar ao carrinho </button>
+                            <Link to="/order-checkout" className="btn  btn-primary mr-1" onClick={this.buyProduct.bind(this, this.state.produto)}> Comprar agora </Link>
+                            <a href="javascript:;" className="btn  btn-outline-primary" onClick={this.addProductToCart.bind(this, this.state.produto)}> <i className="fas fa-shopping-cart" /> Adicionar ao carrinho </a>
                         </article>
                     </aside>
                 </div>

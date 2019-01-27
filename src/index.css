@@ -11,3 +11,9 @@ body {
 .w-150-px {
   width: 150px;
 }
+
+.page-title {
+  font-size: 18px;
+  line-height: 1.2em;
+  margin-bottom: 0.75rem;
+}

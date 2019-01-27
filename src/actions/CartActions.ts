@@ -15,6 +15,12 @@ class CartActions {
       product: {...product}
     });
   }
+
+  public removeAll() {
+    CartDispatcher.dispatch({
+      actionType: CartConstants.REMOVE_ALL
+    });
+  }
 }
 
 export default new CartActions();

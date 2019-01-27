@@ -1,0 +1,24 @@
+.order-product-list { }
+
+.order-product-item {
+  margin-top: 0.75rem;
+}
+
+.order-product-item:first-child {
+  margin-top: 0;
+}
+
+.order-product-item-image {
+  float: left;
+  margin: 0 15px 0 0;
+  width: 300px;
+}
+
+.order-product-item-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.order-product-item-content { }
+
+.order-product-item-title { }

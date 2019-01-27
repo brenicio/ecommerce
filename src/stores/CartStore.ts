@@ -24,6 +24,10 @@ class CartStore extends EventEmitter {
             this.removeProduct(action.product);
             this.emit(CHANGE_EVENT);
         break;
+        case CartConstants.REMOVE_ALL:
+            this.removeAll();
+            this.emit(CHANGE_EVENT);
+        break;
     }
 
     return true;
@@ -40,6 +44,12 @@ class CartStore extends EventEmitter {
     const index = _products.findIndex((p) => p.id === product.id);
     _products.splice(index, index + 1);
 
+    this.updateProductsInLocalStorage(_products);
+  }
+
+  removeAll() {
+    _products.splice(0, _products.length);
+    
     this.updateProductsInLocalStorage(_products);
   }
 

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import ProductService from '../../services/ProductService';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import CartActions from 'src/actions/CartActions';
 
 export interface IProdutListState {
     products: any[];
@@ -47,13 +48,17 @@ class ProdutList extends React.Component<any, IProdutListState> {
          }));
      }
  
-     public showWhisky = () => {
-        this.setState(state => (
-            { products: new ProductService().findProductsByType('W'), 
-              numberOfitemsShown: 4,
-         }));
-     }
- 
+    public showWhisky = () => {
+      this.setState(state => (
+          { products: new ProductService().findProductsByType('W'), 
+            numberOfitemsShown: 4,
+        }));
+    }
+
+    buyProduct(product:any) {
+      CartActions.addProduct(product);
+    }
+
     public render() {
         const productItems = this.state.products
             .slice(0, this.state.numberOfitemsShown)
@@ -62,14 +67,14 @@ class ProdutList extends React.Component<any, IProdutListState> {
                     <figure className="card card-product">
                         <div className="img-wrap">
                             <img src={p.foto} />
-                            <a className="btn-overlay" href="#">
-                                <NavLink to={`/productdetails/${p.id}`} className="fa fa-search-plus text-light">Detalhes</NavLink>
-                            </a>
+                            <Link to={`/productdetails/${p.id}`} className="btn-overlay text-light" href="#">
+                                Detalhes
+                            </Link>
                         </div>
                         <figcaption className="info-wrap">
-                            <a href="#" className="title">{p.nome}</a>
+                            <Link to={`/productdetails/${p.id}`} className="title">{p.nome}</Link>
                             <div className="action-wrap">
-                                <a href="#" className="btn btn-primary btn-sm float-right"> Comprar </a>
+                                <Link to="/order-checkout" onClick={this.buyProduct.bind(this, p)} className="btn btn-primary btn-sm float-right"> Comprar </Link>
                                 <div className="price-wrap h5">
                                     <span className="price-new">R$ {p.valor}</span>
                                 </div>

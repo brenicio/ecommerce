@@ -11,6 +11,7 @@ import ProductList from './components/product/ProductList';
 import Product from './components/product/ProductDetails';
 import Toolbar from './components/navigation/Toolbar';
 import OrderCheckout from './components/order-checkout/OrderCheckout';
+import Order from './components/order/Order';
 
 const exact: boolean = true
 ReactDOM.render((
@@ -24,6 +25,7 @@ ReactDOM.render((
             <Route path="/products" component={ProductList} />
             <Route path="/productdetails/:id" component={Product} />
             <Route path="/order-checkout" component={OrderCheckout} />
+            <Route path="/order" component={Order} />
           </Switch>
         </div>
       </div>
