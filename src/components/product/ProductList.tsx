@@ -26,6 +26,27 @@ class ProdutList extends React.Component<any, IProdutListState> {
         }
     }
 
+    public showCachaca = () => {
+       this.setState(state => (
+           { products: new ProductService().findProductsByType('C'), 
+             numberOfitemsShown: 4,
+        }));
+    }
+
+    public showVodka = () => {
+        this.setState(state => (
+            { products: new ProductService().findProductsByType('V'), 
+              numberOfitemsShown: 4,
+         }));
+     }
+ 
+     public showWhisky = () => {
+        this.setState(state => (
+            { products: new ProductService().findProductsByType('W'), 
+              numberOfitemsShown: 4,
+         }));
+     }
+ 
     public render() {
         const productItems = this.state.products
             .slice(0, this.state.numberOfitemsShown)
@@ -56,6 +77,10 @@ class ProdutList extends React.Component<any, IProdutListState> {
                 {productItems.length ? productItems : "Loading..."}
                 <div className="btn-load-page col-md-12 text-center">
                     <a onClick={this.showMore} className="col-md-3 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12 btn btn-grey" >VER MAIS</a>
+
+                    <a onClick={this.showCachaca} className="col-md-3 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12 btn btn-grey" >Cachaça</a>
+                    <a onClick={this.showVodka} className="col-md-3 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12 btn btn-grey" >Vodka</a>
+                    <a onClick={this.showWhisky} className="col-md-3 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12 btn btn-grey" >Whisky</a>
                 </div>
             </div>
         );
