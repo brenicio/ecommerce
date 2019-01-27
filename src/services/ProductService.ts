@@ -14,6 +14,7 @@ class ProductService {
                 valor: 64.90,
                 versao: 'Original',
                 tipo:'V',
+                qtdVend: 20
             },
             {
                 conteudo: '1000ml',
@@ -28,6 +29,7 @@ class ProductService {
                 valor: 85.99,
                 versao: 'Finest',
                 tipo:'W',
+                qtdVend: 15
             },
             {
                 conteudo: '1000ml',
@@ -42,6 +44,7 @@ class ProductService {
                 valor: 155.00,
                 versao: '12 Anos',
                 tipo:'W',
+                qtdVend: 30
             },            
             {
                 conteudo: '750ml',
@@ -56,6 +59,7 @@ class ProductService {
                 valor: 82.99,
                 versao: 'Premium',
                 tipo:'C',
+                qtdVend: 27
             },
             {
                 conteudo: '1000ml',
@@ -70,6 +74,7 @@ class ProductService {
                 valor: 109.90,
                 versao: '12 Anos',
                 tipo:'W',
+                qtdVend: 5
             },
             {
                 conteudo: '750ml',
@@ -84,6 +89,7 @@ class ProductService {
                 valor: 129.00,
                 versao: 'Premium',
                 tipo:'V',
+                qtdVend: 30
             },
             {
                 conteudo: '750ml',
@@ -98,6 +104,7 @@ class ProductService {
                 valor: 144.00,
                 versao: 'Tradicional',
                 tipo:'W',
+                qtdVend: 45
             },
             {
                 conteudo: '1000ml',
@@ -112,6 +119,7 @@ class ProductService {
                 valor: 80.49,
                 versao: '8 Anos',
                 tipo:'W',
+                qtdVend: 2
             },
             {
                 conteudo: '750 ML',
@@ -126,6 +134,7 @@ class ProductService {
                 valor: 268.12,
                 versao: 'Blue Label',
                 tipo:'W',
+                qtdVend: 8
             },
             {
                 conteudo: '750ml',
@@ -140,6 +149,7 @@ class ProductService {
                 valor: 99.49,
                 versao: 'Tradicional',
                 tipo:'C',
+                qtdVend: 33
             },
             {
                 conteudo: '1000ml',
@@ -154,6 +164,7 @@ class ProductService {
                 valor: 26.90,
                 versao: 'Nacional',
                 tipo:'V',
+                qtdVend: 26
             },
             {
                 conteudo: '1000ml',
@@ -168,6 +179,7 @@ class ProductService {
                 valor: 465.99,
                 versao: 'tradicional',
                 tipo:'W',
+                qtdVend: 12
             },
             {
                 conteudo: '700ml',
@@ -182,6 +194,7 @@ class ProductService {
                 valor: 43.99,
                 versao: 'Tradicional',
                 tipo:'C',
+                qtdVend: 14
             },
             {
                 conteudo: '980ml',
@@ -196,6 +209,7 @@ class ProductService {
                 valor: 34.89,
                 versao: 'Nacional',
                 tipo:'V',
+                qtdVend: 22
             },
             {
                 conteudo: '998ml',
@@ -210,6 +224,7 @@ class ProductService {
                 valor: 32.89,
                 versao: 'Red',
                 tipo:'V',
+                qtdVend: 38
             },
             {
                 conteudo: '1000ml',
@@ -224,6 +239,7 @@ class ProductService {
                 valor: 67.39,
                 versao: 'Tradicional',
                 tipo:'W',
+                qtdVend: 9
             },
             {
                 conteudo: '980ml',
@@ -238,6 +254,7 @@ class ProductService {
                 valor: 89.90,
                 versao: '160 Anos',
                 tipo:'C',
+                qtdVend: 1
             }, 
         ];
     }
@@ -248,6 +265,9 @@ class ProductService {
 
     public findProductsByType(tipo: string):any[] {
         return this.findProducts().filter(p => p.tipo === tipo);
+    }
+    public findProductsBySale():any[] {
+        return this.findProducts().filter(p => p.qtdVend > 20);
     }
 
 }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { UncontrolledCarousel } from 'reactstrap';
 import ProductService from './../../services/ProductService';
-const produtos = new ProductService().findProducts();
+const produtos = new ProductService().findProductsBySale();
 
 
 const items = produtos.map((p)=>{
