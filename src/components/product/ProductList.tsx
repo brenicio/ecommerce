@@ -26,6 +26,13 @@ class ProdutList extends React.Component<any, IProdutListState> {
         }
     }
 
+    public showAll = () => {
+        this.setState(state => (
+            { products: new ProductService().findProducts(), 
+              numberOfitemsShown: 4,
+         }));
+     }
+
     public showCachaca = () => {
        this.setState(state => (
            { products: new ProductService().findProductsByType('C'), 
@@ -74,13 +81,17 @@ class ProdutList extends React.Component<any, IProdutListState> {
 
         return (
             <div className="row">
+                <div className="btn-load-page col-md-12 text-center filtro">
+                    <a onClick={this.showCachaca} className="col-md-3 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12" >Cachaça</a>
+                    <a onClick={this.showVodka} className="col-md-3 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12" >Vodka</a>
+                    <a onClick={this.showWhisky} className="col-md-3 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12" >Whisky</a>
+                    <a onClick={this.showAll} className="col-md-3 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12" >Todos</a>
+                </div>  
+           
                 {productItems.length ? productItems : "Loading..."}
+
                 <div className="btn-load-page col-md-12 text-center">
                     <a onClick={this.showMore} className="col-md-3 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12 btn btn-grey" >VER MAIS</a>
-
-                    <a onClick={this.showCachaca} className="col-md-3 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12 btn btn-grey" >Cachaça</a>
-                    <a onClick={this.showVodka} className="col-md-3 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12 btn btn-grey" >Vodka</a>
-                    <a onClick={this.showWhisky} className="col-md-3 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12 btn btn-grey" >Whisky</a>
                 </div>
             </div>
         );
