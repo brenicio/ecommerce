@@ -21,6 +21,20 @@ class CartActions {
       actionType: CartConstants.REMOVE_ALL
     });
   }
+
+  public increaseProductQuantity(product:any) {
+    CartDispatcher.dispatch({
+      actionType: CartConstants.INCREASE_PRODUCT_QUANTITY,
+      product: {...product}
+    });
+  }
+
+  public decreaseProductQuantity(product:any) {
+    CartDispatcher.dispatch({
+      actionType: CartConstants.DECREASE_PRODUCT_QUANTITY,
+      product: {...product}
+    });
+  }
 }
 
 export default new CartActions();

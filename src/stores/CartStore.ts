@@ -28,16 +28,31 @@ class CartStore extends EventEmitter {
             this.removeAll();
             this.emit(CHANGE_EVENT);
         break;
+        case CartConstants.INCREASE_PRODUCT_QUANTITY:
+            this.increaseProductQuantity(action.product);
+            this.emit(CHANGE_EVENT);
+        break;
+        case CartConstants.DECREASE_PRODUCT_QUANTITY:
+            this.decreaseProductQuantity(action.product);
+            this.emit(CHANGE_EVENT);
+        break;
     }
 
     return true;
   }
 
   addProduct(product:any) {
-    if(!_products.find((p) => p.id === product.id)) {
-      _products.push(product);
-      this.updateProductsInLocalStorage(_products);
+    const pIndex = _products.findIndex((p) => p.id === product.id)
+    if(pIndex < 0) {
+      _products.push({
+        ...product,
+        quantity: 1
+      });
+    } else {
+      this.increaseProductQuantity(_products[pIndex]);
     }
+
+    this.updateProductsInLocalStorage(_products);
   }
 
   removeProduct(product:any) {
@@ -53,6 +68,24 @@ class CartStore extends EventEmitter {
     this.updateProductsInLocalStorage(_products);
   }
 
+  increaseProductQuantity(product:any) {
+    const pIndex = _products.findIndex((p) => p.id === product.id);
+    _products[pIndex].quantity++;
+
+    this.updateProductsInLocalStorage(_products);
+  }
+
+  decreaseProductQuantity(product:any) {
+    const pIndex = _products.findIndex((p) => p.id === product.id);
+    _products[pIndex].quantity--;
+
+    if(_products[pIndex].quantity > 0) {
+      this.updateProductsInLocalStorage(_products);
+    } else {
+      this.removeProduct(product);
+    }
+  }
+
   addChangeListener(callback:any) {
     this.on(CHANGE_EVENT, callback);
   }
@@ -63,6 +96,10 @@ class CartStore extends EventEmitter {
 
   getProducts() {
     return _products;
+  }
+
+  getTotal() {
+    return _products.reduce((r:number, p:any) => r + p.quantity * p.valor, 0)
   }
 
   private findProductsInLocalStorage() {

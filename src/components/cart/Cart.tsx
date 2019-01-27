@@ -48,12 +48,6 @@ class Cart extends React.Component<any, any> {
   }
 
   render() {
-    const total = ((products:any[]) => {
-      return products.reduce((result, p) => {
-        return result + p.valor;
-      }, 0);
-    }).bind(this);
-
     return (
       <div className="cart">
         <a id="CartPopover" className="cart-link">
@@ -76,13 +70,13 @@ class Cart extends React.Component<any, any> {
                   <li className="cart-product-item" key={p.id.toString()}>
                     <a className="close" onClick={this.removeProduct.bind(this, p)}>&times;</a>
                     <span className="cart-product-label">{p.nome}</span>
-                    <span className="cart-product-label text-right">1 x {p.valor}</span>
+                    <span className="cart-product-label text-right">{p.quantity} x {p.valor}</span>
                   </li>
                   )}
                 </ul>
                 <div className="cart-product-list-footer">
                   <strong className="cart-product-label">Total: </strong>
-                  <span className="cart-product-label text-right">{total(this.state.products)}</span>
+                  <span className="cart-product-label text-right">{CartStore.getTotal()}</span>
                 </div>
 
                 <div className="cart-product-list-buttons clearfix">

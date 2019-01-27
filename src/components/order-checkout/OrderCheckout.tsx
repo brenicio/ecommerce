@@ -8,9 +8,12 @@ import CartActions from 'src/actions/CartActions';
 class OrderCheckout extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
+    
     this.state = {
       products: CartStore.getProducts()
     };
+
+    this._onChange = this._onChange.bind(this);
   }
 
   removeProduct(product:any) {
@@ -18,6 +21,28 @@ class OrderCheckout extends React.Component<any, any> {
     this.setState({
       products: CartStore.getProducts()
     });
+  }
+
+  increaseProductQuantity(product:any) {
+    CartActions.increaseProductQuantity(product);
+  }
+
+  decreaseProductQuantity(product:any) {
+    CartActions.decreaseProductQuantity(product);
+  }
+
+  componentDidMount() {
+    CartStore.addChangeListener(this._onChange)
+  }
+
+  componentWillUnmount() {
+    CartStore.removeChangeListener(this._onChange);
+  }
+
+  _onChange() {
+    this.setState({
+      products: CartStore.getProducts()
+    })
   }
 
   render() {
@@ -35,6 +60,7 @@ class OrderCheckout extends React.Component<any, any> {
             <th scope="col">Produto</th>
             <th scope="col" className="text-center w-150-px">Quantidade</th>
             <th scope="col" className="text-center w-150-px">Preço</th>
+            <th scope="col" className="text-center w-150-px">Total</th>
             <th scope="col" className="text-center w-120-px">&nbsp;</th>
           </tr>
         </thead>
@@ -53,8 +79,17 @@ class OrderCheckout extends React.Component<any, any> {
                 </figcaption>
               </figure>
             </td>
-            <td className="text-center">1</td>
+            <td className="text-center">
+              <div className="order-product-quantity clearfix">
+                <span className="order-product-quantity-number">{p.quantity}</span>
+                <span className="order-product-quantity-actions">
+                  <button type="button" className="btn btn-primary" onClick={this.increaseProductQuantity.bind(this, p)}>+</button>
+                  <button type="button" className="btn btn-danger" onClick={this.decreaseProductQuantity.bind(this, p)}>-</button>
+                </span>
+              </div>
+            </td>
             <td className="text-center">{p.valor}</td>
+            <td className="text-center">{p.quantity * p.valor}</td>
             <td className="text-center">
               <button type="button" className="btn btn-sm btn-danger" onClick={this.removeProduct.bind(this, p)}>Remover</button>
             </td>
@@ -62,6 +97,9 @@ class OrderCheckout extends React.Component<any, any> {
           )}
         </tbody>
       </table>
+    </div>
+    <div className="clearfix text-right mt-3">
+      <strong>Total Carrinho: </strong> {CartStore.getTotal()}
     </div>
     <div className="clearfix mt-3">
       <div className="float-right">

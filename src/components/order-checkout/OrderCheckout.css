@@ -1,3 +1,24 @@
 .media .title {
   font-size: 1rem;
 }
+
+.order-product-quantity {
+  display: inline-block;
+}
+
+.order-product-quantity-number {
+  display: block;
+  float: left;
+  margin: 0 6px 0 0;
+}
+
+.order-product-quantity-actions {
+  display: block;
+  float: left;
+}
+
+.order-product-quantity-actions .btn {
+  padding: 0;
+  width: 24px;
+  margin: 0 3px;
+}

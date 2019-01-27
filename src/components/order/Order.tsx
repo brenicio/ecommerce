@@ -13,7 +13,8 @@ class Order extends React.Component<any, any> {
     const products = CartStore.getProducts();
     this.state = {
       orderNumber: Math.round(Math.random() * 100000),
-      products: Object.assign(products)
+      products: Object.assign(products),
+      total: CartStore.getTotal()
     }
   }
 
@@ -30,7 +31,9 @@ class Order extends React.Component<any, any> {
     <>
     <h2 className="page-title">Parabéns pela compra</h2>
 
-    <div className="mb-3">Número do pedido: {this.state.orderNumber}</div>
+    <div className="mb-3"><strong>Número do pedido:</strong> {this.state.orderNumber}</div>
+
+    <div className="mb-3"><strong>Total:</strong> {this.state.total}</div>
 
     <ul className="list-unstyled order-product-list">
       {this.state.products.map((p:any) => 
@@ -38,6 +41,9 @@ class Order extends React.Component<any, any> {
         <div className="order-product-item-image"><img src={p.foto} className="img-thumbnail" /></div>
         <div className="order-product-item-content">
           <h3 className="order-product-item-title">{p.nome}</h3>
+          <div>
+            Quantidade: {p.quantity}
+          </div>
         </div>
       </li>
       )}
