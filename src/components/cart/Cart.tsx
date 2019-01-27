@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Popover, PopoverHeader, PopoverBody } from 'reactstrap';
 import CartStore from '../../stores/CartStore';
 import CartActions from '../../actions/CartActions';
+import { Link } from 'react-router-dom';
 
 class Cart extends React.Component<any, any> {
   constructor(props: any){
@@ -46,7 +47,7 @@ class Cart extends React.Component<any, any> {
     CartActions.removeProduct(product);
   }
 
-  public render() {
+  render() {
     const total = ((products:any[]) => {
       return products.reduce((result, p) => {
         return result + p.valor;
@@ -85,7 +86,7 @@ class Cart extends React.Component<any, any> {
                 </div>
 
                 <div className="cart-product-list-buttons clearfix">
-                  <button type="button" className="btn btn-primary float-right">Finalizar Compra</button>
+                    <Link to="/order-checkout" className="btn btn-primary float-right">Finalizar Compra</Link>
                 </div>
               </div>
             ) : (

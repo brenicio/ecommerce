@@ -41,8 +41,12 @@ class ProductDetails extends React.Component<IProps, IState> {
         return produto
     }
 
+    buyProduct(product:any) {
+      CartActions.addProduct(product);
+    }
+
     addProductToCart(product:any) {
-        CartActions.addProduct(product);
+      CartActions.addProduct(product);
     }
 
     public render() {
@@ -129,8 +133,8 @@ class ProductDetails extends React.Component<IProps, IState> {
                                 </div>
                             </div>
                             <hr />
-                            <a href="#" className="btn  btn-primary"> Comprar agora </a>
-                            <a href="#" className="btn  btn-outline-primary" onClick={this.addProductToCart.bind(this, this.state.produto)}> <i className="fas fa-shopping-cart" /> Adicionar ao carrinho </a>
+                            <button type="button" className="btn  btn-primary" onClick={this.buyProduct.bind(this, this.state.produto)}> Comprar agora </button>
+                            <button type="button" className="btn  btn-outline-primary" onClick={this.addProductToCart.bind(this, this.state.produto)}> <i className="fas fa-shopping-cart" /> Adicionar ao carrinho </button>
                         </article>
                     </aside>
                 </div>
