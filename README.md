@@ -7,7 +7,11 @@
 * Listagem de produtos por categoria,
 * Visualização de produtos,
 * Carrinho de compras,
+<<<<<<< HEAD
 * Página de confirmação da compra.
+=======
+* Confirmação da compra.
+>>>>>>> 7643649f771af1468501fecab55723ad4a3e7564
 
 ## Visualizando o aplicativo
 
