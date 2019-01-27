@@ -2,6 +2,7 @@ import * as React from 'react';
 import ProductService from '../../services/ProductService';
 import { Link } from 'react-router-dom';
 import CartActions from 'src/actions/CartActions';
+import ConverterValor from '../../services/ConverterValor';
 
 export interface IProdutListState {
     products: any[];
@@ -76,7 +77,7 @@ class ProdutList extends React.Component<any, IProdutListState> {
                             <div className="action-wrap">
                                 <Link to="/order-checkout" onClick={this.buyProduct.bind(this, p)} className="btn btn-primary btn-sm float-right"> Comprar </Link>
                                 <div className="price-wrap h5">
-                                    <span className="price-new">R$ {p.valor}</span>
+                                    <span className="price-new">{new ConverterValor().ConverterValor(p.valor)}</span>
                                 </div>
                             </div>
                         </figcaption>

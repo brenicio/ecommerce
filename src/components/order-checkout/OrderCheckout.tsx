@@ -4,7 +4,9 @@ import * as React from 'react';
 import CartStore from 'src/stores/CartStore';
 import { Link, Redirect } from 'react-router-dom';
 import CartActions from 'src/actions/CartActions';
+import ConverterValor from '../../services/ConverterValor';
 
+const Converter = new ConverterValor();
 class OrderCheckout extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
@@ -88,8 +90,8 @@ class OrderCheckout extends React.Component<any, any> {
                 </span>
               </div>
             </td>
-            <td className="text-center">{p.valor}</td>
-            <td className="text-center">{p.quantity * p.valor}</td>
+            <td className="text-center">{Converter.ConverterValor(p.valor)}</td>
+            <td className="text-center">{Converter.ConverterValor(p.quantity * p.valor)}</td>
             <td className="text-center">
               <button type="button" className="btn btn-sm btn-danger" onClick={this.removeProduct.bind(this, p)}>Remover</button>
             </td>
@@ -99,7 +101,7 @@ class OrderCheckout extends React.Component<any, any> {
       </table>
     </div>
     <div className="clearfix text-right mt-3">
-      <strong>Total Carrinho: </strong> {CartStore.getTotal()}
+      <strong>Total Carrinho: </strong> {Converter.ConverterValor(CartStore.getTotal())}
     </div>
     <div className="clearfix mt-3">
       <div className="float-right">

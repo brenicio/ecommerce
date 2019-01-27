@@ -9,6 +9,7 @@ import { Popover, PopoverHeader, PopoverBody } from 'reactstrap';
 import CartStore from '../../stores/CartStore';
 import CartActions from '../../actions/CartActions';
 import { Link } from 'react-router-dom';
+import ConverterValor from '../../services/ConverterValor';
 
 class Cart extends React.Component<any, any> {
   constructor(props: any){
@@ -70,13 +71,13 @@ class Cart extends React.Component<any, any> {
                   <li className="cart-product-item" key={p.id.toString()}>
                     <a className="close" onClick={this.removeProduct.bind(this, p)}>&times;</a>
                     <span className="cart-product-label">{p.nome}</span>
-                    <span className="cart-product-label text-right">{p.quantity} x {p.valor}</span>
+                    <span className="cart-product-label text-right">{p.quantity} x {new ConverterValor().ConverterValor(p.valor)}</span>
                   </li>
                   )}
                 </ul>
                 <div className="cart-product-list-footer">
                   <strong className="cart-product-label">Total: </strong>
-                  <span className="cart-product-label text-right">{CartStore.getTotal()}</span>
+                  <span className="cart-product-label text-right">{new ConverterValor().ConverterValor(CartStore.getTotal())}</span>
                 </div>
 
                 <div className="cart-product-list-buttons clearfix">

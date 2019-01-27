@@ -5,6 +5,7 @@ import CartStore from 'src/stores/CartStore';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import CartActions from 'src/actions/CartActions';
+import ConverterValor from '../../services/ConverterValor';
 
 class Order extends React.Component<any, any> {
   constructor(props: any) {
@@ -33,7 +34,7 @@ class Order extends React.Component<any, any> {
 
     <div className="mb-3"><strong>Número do pedido:</strong> {this.state.orderNumber}</div>
 
-    <div className="mb-3"><strong>Total:</strong> {this.state.total}</div>
+    <div className="mb-3"><strong>Total:</strong> {new ConverterValor().ConverterValor(this.state.total)}</div>
 
     <ul className="list-unstyled order-product-list">
       {this.state.products.map((p:any) => 

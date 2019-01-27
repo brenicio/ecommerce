@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ProductService from '../../services/ProductService';
 import CartActions from '../../actions/CartActions';
-import { Link } from 'react-router-dom';
+import ConverterValor from '../../services/ConverterValor';
 
 interface IState {
     produto: {
@@ -14,7 +14,7 @@ interface IState {
         nome: string,
         origem: string,
         sabor: string,
-        valor: string,
+        valor: number,
         versao: string,
     }
 }
@@ -33,9 +33,10 @@ class ProductDetails extends React.Component<IProps, IState> {
         super(props);
         this.state = {
             produto: this.FindProduct(this.props.match.params.id)
+
         };
     };
-    
+
     public FindProduct(idx: string) {
         const produto = new ProductService().findProductsById(idx);
         return produto
@@ -71,7 +72,7 @@ class ProductDetails extends React.Component<IProps, IState> {
                             <h3 className="title mb-3">{this.state.produto.nome}</h3>
                             <div className="mb-3">
                                 <var className="price h3 text-warning">
-                                    <span className="currency">R$ </span><span className="num">{this.state.produto.valor}</span>
+                                    <span className="currency"/><span className="num">{new ConverterValor().ConverterValor(this.state.produto.valor)}</span>
                                 </var>
                             </div>
                             <dl>
@@ -113,8 +114,28 @@ class ProductDetails extends React.Component<IProps, IState> {
                                 </ul>
                             </div>
                             <hr />
-                            <Link to="/order-checkout" className="btn  btn-primary mr-1" onClick={this.buyProduct.bind(this, this.state.produto)}> Comprar agora </Link>
-                            <a href="javascript:;" className="btn  btn-outline-primary" onClick={this.addProductToCart.bind(this, this.state.produto)}> <i className="fas fa-shopping-cart" /> Adicionar ao carrinho </a>
+                            <div className="row">
+                                <div className="col-sm-5">
+                                    <dl className="dlist-inline">
+                                        <dt>Quantidade: </dt>
+                                        <dd>
+                                            <select className="form-control form-control-sm" style={{ width: '70px' }}>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>4</option>
+                                                <option>8</option>
+                                                <option>10</option>
+                                            </select>
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div className="col-sm-7">
+                                    <div />
+                                </div>
+                            </div>
+                            <hr />
+                            <button type="button" className="btn  btn-primary" onClick={this.buyProduct.bind(this, this.state.produto)}> Comprar agora </button>
+                            <button type="button" className="btn  btn-outline-primary" onClick={this.addProductToCart.bind(this, this.state.produto)}> <i className="fas fa-shopping-cart" /> Adicionar ao carrinho </button>
                         </article>
                     </aside>
                 </div>
