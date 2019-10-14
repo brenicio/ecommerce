@@ -1,5 +1,15 @@
 # CHOPPingue
 
+## Inicialização do projeto
+> Faça a instalação do gerenciador de pacotes [[YARN](https://yarnpkg.com/pt-BR/)].
+
+Execute os comandos abaixo no terminal (estando na pasta do projeto) : <br/>
+
+> yarn install <br/>
+> yarn start
+
+No navegador acesse `http://localhost:3000`
+
 ### Requisitos
 
 * Catálogo de produtos mais vendidos em carrossel,
